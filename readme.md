@@ -1,11 +1,11 @@
 # Tandem Tales Test Client #
 
 A text-based client written in Java that connects to a
-[Tandem Tales Server](https://github.com/sgware/tt-test-client) from the
-terminal. Each time a turn is taken, this client prints out a short update.
-When it is this agent's turn, the client prints out a numbered list of all
-available turns, making it easy to explore the range of possabilities
-available in a Tandem Tales story world.
+[Tandem Tales Server](https://github.com/sgware/tt-server) from the terminal.
+Each time a turn is taken, this client prints out a short update. When it is
+this agent's turn, the client prints out a numbered list of all available turns,
+making it easy to explore the range of possabilities available in a Tandem Tales
+story world.
 
 ## Pre-Compiled Executable
 
