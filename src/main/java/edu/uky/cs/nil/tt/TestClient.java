@@ -23,9 +23,6 @@ public class TestClient extends Client {
 	/** Used to read choices from standard input */
 	private final Scanner input;
 	
-	/** The last update string printed */
-	private String previous = null;
-	
 	/**
 	 * Creates a new test client with the given session preferences and network
 	 * configuration.
@@ -62,15 +59,12 @@ public class TestClient extends Client {
 	@Override
 	protected void onUpdate(Status status) {
 		Turn last = getLastTurn(status);
-		String update = null;
-		if(last == null || last.type == Turn.Type.SUCCEED)
-			update = status.getState().getDescription();
+		if(last == null || last.type == Turn.Type.PROPOSE || last.type == Turn.Type.PASS)
+			return;
 		else if(last.type == Turn.Type.FAIL)
-			update = last.getDescription();
-		if(update != null && !update.equals(previous)) {
-			System.out.println(update + "\n");
-			previous = update;
-		}
+			System.out.println(last.getDescription() + "\n");
+		else
+			System.out.println(status.getState().getDescription() + "\n");
 	}
 	
 	@Override
@@ -93,7 +87,6 @@ public class TestClient extends Client {
 		else if(choice.type == Turn.Type.PASS)
 			System.out.println("It is now your partner's turn. Please wait for them to act.");
 		System.out.println();
-		previous = null;
 		return index;
 	}
 	

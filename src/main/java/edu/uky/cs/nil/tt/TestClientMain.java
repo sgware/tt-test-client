@@ -118,6 +118,8 @@ public class TestClientMain {
 			port = Integer.parseInt(arguments.getValue(PORT_KEY, Integer.toString(DEFAULT_PORT)));
 		else
 			port = DEFAULT_PORT;
+		// Check for unused command line arguments.
+		arguments.checkUnused();
 		// Create Client
 		try(TestClient client = new TestClient(name, world, role, partner, url, port);) {
 			client.call();
