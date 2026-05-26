@@ -59,7 +59,7 @@
               <directory>${basedir}/docs</directory>
             </fileset>
             <fileset>
-              <directory>${basedir}/jar</directory>
+              <directory>${basedir}/build</directory>
             </fileset>
           </filesets>
           <force>true</force>
@@ -144,7 +144,7 @@
                   <type>${project.packaging}</type>
                 </artifactItem>
               </artifactItems>
-              <outputDirectory>${basedir}/jar</outputDirectory>
+              <outputDirectory>${basedir}/build/jar</outputDirectory>
               <stripVersion>true</stripVersion>
             </configuration>
           </execution>
